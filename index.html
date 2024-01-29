@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function comprobarTamano() {
+            let cajaTexto1 = document.getElementById("frase1");
+            let errorCajaTexto1 = document.getElementById("errorFrase1");
+            if (cajaTexto1.value.trim().length > 20) {
+                cajaTexto1.style.border = "2px solid red"
+                errorCajaTexto1.style.display = "block"
+            } else {
+                cajaTexto1.style.border = "2px solid green"
+                errorCajaTexto1.style.display = "none"
+            }
+        }
+
+        function comprobarContenido(textoAProbar) {
+
+            let texto1=document.getElementById("frase2").value;
+            if(texto1.includes(textoAProbar)){
+                alert("Si incluye")
+            }
+
+        }
+        function devolverTrozo(){
+            let texto1 = document.getElementById("frase1").value;
+            alert(texto1.substring(3,6));
+            alert(texto1.substr(3,3));
+            alert(texto1.slice(3,6));
+        }
+
+        function devolverCaracteres(textoPrueba) {
+            let texto1 = document.getElementById("frase1").value;
+            let textoxyz = document.getElementById("frase1").value.indexOf("XYZ");
+
+            if (texto1.includes(textoPrueba)) {
+                alert(texto1.substr(textoxyz+3,5));
+                
+            }
+
+            
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>Uso de strings</h1>
+    <p>FRASE1: <input type="text" name="frase1" id="frase1"></p>
+    <span id="errorFrase1" style="display: none;">Error: Demas</span>
+    <p>FRASE2: <textarea id="frase2"></textarea></p>
+    <input type="button" value="Enviar" onclick="comprobarTamano()">
+    <input type="button" value="ComprobarPalabra" onclick="comprobarContenido('aprobado')">
+    <input type="button" value="boton5" onclick="devolverTrozo()">
+    <input type="button" value="boton6" onclick="devolverCaracteres('XYZ')">
+</body>
+
+</html>
